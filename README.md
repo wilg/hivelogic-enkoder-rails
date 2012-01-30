@@ -1,6 +1,6 @@
-h2. Hivelogic Enkoder
+# Hivelogic Enkoder for Rails
 
-The Enkoder plugin provides an extension to TextHelper that can be used to
+The enkoder_rails plugin provides adds some view helpers to Rails that can be used to
 protect email addresses (or other information) by obfuscating them using
 JavaScript code. The only way to decrypt the JavaScript is to actually run it,
 hiding the results from email-harvesting robots while revealing them to real
@@ -9,73 +9,83 @@ people.
 It uses a significantly different (and some might say more secure) algorithm
 than the built-in mail_to helper.
 
-Note: There's no guarantee here -- the only way to be completely safe is to not
+*Note: There's no guarantee here* -- the only way to be completely safe is to not
 publish your address at all.
 
 
-h2. Installation:
+##Installation
 
-Just drop the "enkoder" folder into the /vendor/plugins folder in your project.
+Add to your Gemfile and run the `bundle` command to install it.
 
+ ```ruby
+ gem "enkoder_rails", git: "git://github.com/supapuerco/hivelogic-enkoder-rails.git"
+ ```
 
-h2. Usage:
+## Usage
 
 There are two methods:
 
-	enkode( html )
-	
+ ```ruby
+ enkode(html)
+ ```
+
 This method accepts a block of html (or any text) and returns an enkoded JavaScript.
 
 The second method is:
 
-	enkode_mail( email, link_text, title_text=nil, subject=nil )
-
+ ```ruby
+ enkode_mail(email, link_text, title_text = nil, subject = nil)
+ ```
+ 
 This method takes an email address, the text to show to the viewer, optional
 title text (what's seen when somebody hovers over the link), and optional
 subject for the email, and returns an enkoded email address link.
 
 
-h2. Examples:
+## Examples
 
 To enkode a single email address, one could just do:
 
-	<%= enkode_mail('user@domain.com','click here') %>
-
+ ```ruby
+ enkode_mail('user@example.com', 'click here')
+ ```
+ 
 And the following link would be returned (enkoded as JavaScript):
 
-	<a href="mailto:"user@domain.com" title="">click here</a>
+ ```html
+	<a href="mailto:"user@example.com" title="">click here</a>
+ ```
 
 Adding a title and subject text would require the second two optional fields:
 
-	<%= enkode_mail('user@domain.com','click here', 'email me', 'enkoder') %>
+ ```ruby
+ enkode_mail('user@domain.com','click here', 'email me', 'enkoder') %>
+ ```
 
 And we'd get back (enkoded as JavaScript):
 
-	<a href="mailto:"user@domain.com?subject=enkoder" title="email me">click here</a>
-
-Of course we can also enkode many email addresses on the fly:
-
-	<% @users.each do |user| %>
-		<p><%= enkode_mail(@user.email,@user.name) %></p>
-	<% end %>
+ ```html
+ <a href="mailto:"user@domain.com?subject=enkoder" title="email me">click here</a>
+ ```
 
 To enkode a snippet of XHTML, we can do:
 
-	<%= enkode("<p>This block will be hidden from spambots.</p>") %>
+ ```html
+ enkode("<p>This block will be hidden from spambots.</p>")
+ ```
 
 We could protect a link or block of XHTML from being indexed like this:
 
-	<%= enkode('Try and find <a href="secret.html">this</a>, google!') %>
+ ```html
+ enkode('Try and find <a href="secret.html">this</a>, google!')
+ ```
 
 We could have anything we wanted in that block, XHTML, links, email addresses, etc.
 
-For more examples and to see the full functionality of the Enkoder, have a look
-its permanent page on the web:
+For more examples and to see the full functionality of the Enkoder, [have a look
+its permanent page on the web](http://hivelogic.com/enkoder).
 
-	http://hivelogic.com/enkoder
-
-
-h2. License:
+##License
 
 Copyright (c) 2009 Hivelogic Corporation
 
