@@ -53,7 +53,7 @@ To enkode a single email address, one could just do:
 And the following link would be returned (enkoded as JavaScript):
 
  ```html
- <a href="mailto:"user@example.com" title="">click here</a>
+ <a href="mailto:user@example.com" title="">click here</a>
  ```
 
 Adding a title and subject text would require the second two optional fields:
@@ -65,7 +65,7 @@ Adding a title and subject text would require the second two optional fields:
 And we'd get back (enkoded as JavaScript):
 
  ```html
- <a href="mailto:"user@domain.com?subject=enkoder" title="email me">click here</a>
+ <a href="mailto:user@domain.com?subject=enkoder" title="email me">click here</a>
  ```
 
 To enkode a snippet of XHTML, we can do:
