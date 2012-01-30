@@ -1,6 +1,8 @@
 module EnkoderRails
   module HelperAdditions
 
+    require "active_support/core_ext/string/output_safety"   
+
     def enkode( html, max_length=1024 )
 
       rnd = 10 + (rand*90).to_i
@@ -60,7 +62,7 @@ module EnkoderRails
         result = js unless result.length>max_length
       end
 
-      result
+      result.html_safe
 
     end
     

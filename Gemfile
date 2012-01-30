@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in scoped_traversal.gemspec
+# Specify your gem's dependencies in enkoder_rails.gemspec
 gemspec
