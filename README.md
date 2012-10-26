@@ -18,7 +18,7 @@ publish your address at all.
 Add to your Gemfile and run the `bundle` command to install it.
 
  ```ruby
- gem "enkoder_rails", git: "git://github.com/supapuerco/hivelogic-enkoder-rails.git"
+ gem "enkoder_rails", git: "git://github.com/wilg/hivelogic-enkoder-rails.git"
  ```
 
 ## Usage
