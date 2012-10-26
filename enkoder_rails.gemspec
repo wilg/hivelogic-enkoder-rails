@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "enkoder_rails"
   s.version     = EnkoderRails::VERSION
   s.authors     = ["Dan Benjamin", "Wil Gieseler"]
-  s.email       = ["supapuerco@gmail.com"]
-  s.homepage    = "https://github.com/supapuerco/enkoder_rails"
+  s.email       = ["wilgieseler@me.com"]
+  s.homepage    = "https://github.com/wilg/hivelogic-enkoder-rails"
   s.summary     = %q{A Rails gem to easily obfuscate email addresses.}
   s.description = %q{A Rails gem to easily obfuscate email addresses.}
 
